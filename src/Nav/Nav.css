@@ -1,30 +1,26 @@
-.nav-container {
+.nav-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
   height: 70px;
 }
 
-.nav-content-left {
+.nav-container-left {
+  font-size: 12px;
+}
+
+.nav-container-right {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: rgb(255, 135, 92);
   font-size: 12px;
 }
 
 .nav-content-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: rgb(255, 135, 92);
-  font-size: 12px;
+  padding: 0 10px 0 10px;
 }
 
 .nav-header {
+  padding: 0 25px 0 25px;
+  color: black;
   display: flex;
   justify-content: center;
-  padding: 0 25px 0 25px;
 }
