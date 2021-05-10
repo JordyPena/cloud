@@ -1,0 +1,17 @@
+.form-searchbar {
+  
+}
+
+.form-searchbar-input {
+  width: 100px;
+  color: rgb(255, 135, 92);
+  border-color: rgb(255, 135, 92);
+  border-radius: 20px;
+}
+
+.form-searchbar-input:focus {
+  border-radius: 20px;
+  border-color: rgba(0, 204, 255, 0.7);
+  outline: none;
+  color: rgba(0, 136, 170, 0.7);
+}
