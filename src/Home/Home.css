@@ -1,0 +1,37 @@
+.home-container {
+  background-image: url('https://images.unsplash.com/photo-1601352209555-489a72668fda?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2xvdWR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.home-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 60%;
+}
+
+.home-header {
+  background-color: rgb(255, 135, 92);
+  opacity: 0.5;
+  color: white;
+  padding: 0 15px 0 15px;
+}
+
+.home-button-styles {
+  background-color: rgb(255, 115, 0);
+  color: white;
+  border: none;
+  margin: 5px 0 10px 0;
+  padding: 5px 10px 5px 10px;
+  font-size: 12px;
+}
+
+.home-h1 {
+  font-size: 20px;
+}
