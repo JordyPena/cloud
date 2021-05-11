@@ -6,10 +6,9 @@ const Nav = () => {
   return (
     <navbar className='nav-wrapper'>
       <div className='nav-container-left'>
-        <h1 className='nav-header'>
+        <Link to='/' className='nav-header'>
           Cloud <AiFillCloud />
-        </h1>
-        <span className='cloud-img'></span>
+        </Link>
       </div>
 
       <div className='nav-container-right'>
