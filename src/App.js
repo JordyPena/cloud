@@ -4,7 +4,7 @@ import Footer from './Footer/Footer';
 import { Route } from 'react-router-dom';
 import Cart from './Cart/Cart';
 import About from './About/About';
-
+import Results from './Results/Results';
 function App() {
   return (
     <>
@@ -25,6 +25,12 @@ function App() {
       exact
       path='/about'
       component={About}
+    />
+
+    <Route
+      exact
+      path='/results'
+      component={Results}
     />
     <Footer/>
     </>
