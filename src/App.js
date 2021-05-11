@@ -3,6 +3,7 @@ import Nav from './Nav/Nav';
 import Footer from './Footer/Footer';
 import { Route } from 'react-router-dom';
 import Cart from './Cart/Cart';
+import About from './About/About';
 
 function App() {
   return (
@@ -18,6 +19,12 @@ function App() {
       exact
       path='/cart'
       component={Cart}
+    />
+
+    <Route
+      exact
+      path='/about'
+      component={About}
     />
     <Footer/>
     </>
