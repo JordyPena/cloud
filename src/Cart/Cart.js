@@ -22,6 +22,7 @@ const Cart = () => {
           <p>Men's Shoe</p>
           <p>Size</p>
           <p>M 12 / W 13.5</p>
+          <button className='remove-button'>Remove</button>
         </div>
         <hr />
         <div className="cart-items">
@@ -35,6 +36,7 @@ const Cart = () => {
           <p>Men's Shoe</p>
           <p>Size</p>
           <p>M 12 / W 13.5</p>
+          <button className='remove-button'>Remove</button>
         </div>
         <hr />
         <div className="cart-items">
@@ -48,6 +50,7 @@ const Cart = () => {
           <p>Men's Shoe</p>
           <p>Size</p>
           <p>M 12 / W 13.5</p>
+          <button className='remove-button'>Remove</button>
         </div>
         <hr />
         <section className="cart-total">
