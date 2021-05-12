@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import Cart from './Cart/Cart';
 import About from './About/About';
 import Results from './Results/Results';
+import Summary from './Summary/Summary';
 function App() {
   return (
     <>
@@ -31,6 +32,12 @@ function App() {
       exact
       path='/results'
       component={Results}
+    />
+
+    <Route
+      exact
+      path='/summary'
+      component={Summary}
     />
     <Footer/>
     </>
