@@ -1,47 +1,58 @@
-import '../Results/Results.css';
+import "../Results/Results.css";
 
 const Results = () => {
-
   return (
-      <section className='results-wrapper'>
-        <div className='results-content'>
-          <p>Item img</p>
-          <p>Item name</p>
-          <p>Item price</p>
-          <button className='results-button'>Add to Bag</button>
+    <section className="results-wrapper">
+      <div className="results-content">
+        <div className="results-img-container"></div>
+        <div className="results-text-container">
+          <p className="results-content-text">Air jordan 1 centre</p>
+          <p className="results-content-text">Court</p>
+          <p className="results-content-price">$135</p>
         </div>
-        <div className='results-content'>
-          <p>Item img</p>
-          <p>Item name</p>
-          <p>Item price</p>
-          <button className='results-button'>Add to Bag</button>
+      </div>
+      <div className="results-content">
+        <div className="results-img-container"></div>
+        <div className="results-text-container">
+          <p className="results-content-text">Air jordan 1 centre</p>
+          <p className="results-content-text">Court</p>
+          <p className="results-content-price">$135</p>
         </div>
-        <div className='results-content'>
-          <p>Item img</p>
-          <p>Item name</p>
-          <p>Item price</p>
-          <button className='results-button'>Add to Bag</button>
+      </div>
+      <div className="results-content">
+        <div className="results-img-container"></div>
+        <div className="results-text-container">
+          <p className="results-content-text">Air jordan 1 centre</p>
+          <p className="results-content-text">Court</p>
+          <p className="results-content-price">$135</p>
         </div>
-        <div className='results-content'>
-          <p>Item img</p>
-          <p>Item name</p>
-          <p>Item price</p>
-          <button className='results-button'>Add to Bag</button>
+      </div>
+      <div className="results-content">
+        <div className="results-img-container"></div>
+        <div className="results-text-container">
+          <p className="results-content-text">Air jordan 1 centre</p>
+          <p className="results-content-text">Court</p>
+          <p className="results-content-price">$135</p>
         </div>
-        <div className='results-content'>
-          <p>Item img</p>
-          <p>Item name</p>
-          <p>Item price</p>
-          <button className='results-button'>Add to Bag</button>
+      </div>
+      <div className="results-content">
+        <div className="results-img-container"></div>
+        <div className="results-text-container">
+          <p className="results-content-text">Air jordan 1 centre</p>
+          <p className="results-content-text">Court</p>
+          <p className="results-content-price">$135</p>
         </div>
-        <div className='results-content'>
-          <p>Item img</p>
-          <p>Item name</p>
-          <p>Item price</p>
-          <button className='results-button'>Add to Bag</button>
+      </div>
+      <div className="results-content">
+        <div className="results-img-container"></div>
+        <div className="results-text-container">
+          <p className="results-content-text">Air jordan 1 centre</p>
+          <p className="results-content-text">Court</p>
+          <p className="results-content-price">$135</p>
         </div>
-      </section>
-  )
-}
+      </div>
+    </section>
+  );
+};
 
 export default Results;
