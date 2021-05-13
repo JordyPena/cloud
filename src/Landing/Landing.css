@@ -1,0 +1,49 @@
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.first-img-container, .second-img-container,
+.third-img-container, .fourth-img-container {
+ width: 300px;
+ height: auto;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.first-img {
+  background-image: url('https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg');
+  background-repeat: no-repeat;
+  height: 100px;
+  width: auto;
+  background-position: center;
+  background-size: 80px;
+}
+
+.second-img {
+  background-image: url('https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg');
+  background-repeat: no-repeat;
+  height: 100px;
+  width: auto;
+  background-position: center;
+  background-size: 80px;
+}
+
+.third-img {
+  background-image: url('https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg');
+  background-repeat: no-repeat;
+  height: 100px;
+  width: auto;
+  background-position: center;
+  background-size: 80px;
+}
+
+.fourth-img {
+  background-image: url('https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg');
+  background-repeat: no-repeat;
+  height: 100px;
+  width: auto;
+  background-position: center;
+  background-size: 80px;
+}

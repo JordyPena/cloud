@@ -2,6 +2,7 @@ import Home from './Home/Home';
 import Nav from './Nav/Nav';
 import Footer from './Footer/Footer';
 import { Route } from 'react-router-dom';
+import Landing from './Landing/Landing';
 import Cart from './Cart/Cart';
 import About from './About/About';
 import Results from './Results/Results';
@@ -14,6 +15,12 @@ function App() {
       exact
       path='/'
       component={Home}
+    />
+
+    <Route
+      exact 
+      path='/landing'
+      component={Landing}
     />
 
     <Route
