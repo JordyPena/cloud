@@ -14,7 +14,7 @@ const Home = () => {
         <div className="home-header">
           <h1 className="home-h1">Keep the Summer Vibe Alive</h1>
           <p>Explore our new arrivals</p>
-          <button className='home-button-styles' onClick={() => enterSite()}>Dive Right In</button>
+          <button id='home-button' className='home-button-styles' onClick={() => enterSite()}>Dive Right In</button>
         </div>
       </header>
     </main>
