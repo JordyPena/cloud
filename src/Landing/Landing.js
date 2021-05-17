@@ -4,8 +4,20 @@ const Landing = () => {
 
   return (
     <main className='landing-container'>
-      <header>
+      <header className='landing-header-container'>
         <p>Team Favorites</p>
+        <label>Search by category</label>
+        <select className='select-category'>
+          <option value='shirts'>Shirts</option>
+          <option value='pants'>Pants</option>
+          <option value='shorts'>Shorts</option>
+        </select>
+        <label>Results limit</label>
+        <select className='select-limit'>
+          <option value='10'>10</option>
+          <option value='20'>20</option>
+          <option value='30'>30</option>
+        </select>
       </header>
       <section>
         <p>Dope shirt</p>
