@@ -19,7 +19,7 @@ function App() {
 
     <Route
       exact 
-      path='/landing'
+      path='/landingPage'
       component={Landing}
     />
 
