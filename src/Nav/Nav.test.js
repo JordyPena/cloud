@@ -34,7 +34,6 @@ describe("Nav", () => {
     const leftClick = { button: 0 };
     userEvent.click(screen.getByText(/About Us/i), leftClick);
 
-    // check that the content changed to the new page
     expect(screen.getByText(/let it drip/i)).toBeInTheDocument();
   });
 
@@ -51,7 +50,6 @@ describe("Nav", () => {
     const leftClick = { button: 0 };
     userEvent.click(screen.getByTestId("cloud-element"), leftClick);
 
-    // check that the content changed to the new page
     expect(screen.getByText(/keep the summer vibe alive/i)).toBeInTheDocument();
   });
 });
