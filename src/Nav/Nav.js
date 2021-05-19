@@ -4,7 +4,7 @@ import { AiFillCloud } from 'react-icons/ai';
 import Searchbar from '../Searchbar/Searchbar';
 const Nav = () => {
   return (
-    <navbar className='nav-wrapper'>
+    <nav className='nav-wrapper'>
       <div className='nav-container-left'>
         <Link to='/' className='nav-header'>
           Cloud <AiFillCloud />
@@ -16,7 +16,7 @@ const Nav = () => {
         <Link to='/cart' className='nav-content-right'>Cart</Link>   
         <Link to='about' className='nav-content-right'>About Us</Link>   
       </div>
-    </navbar>
+    </nav>
   );
 };
 
