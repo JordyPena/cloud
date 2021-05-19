@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav className='nav-wrapper'>
       <div className='nav-container-left'>
-        <Link to='/' className='nav-header'>
+        <Link to='/' className='nav-header' data-testid='cloud-element'>
           Cloud <AiFillCloud />
         </Link>
       </div>
