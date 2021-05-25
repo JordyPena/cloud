@@ -1,8 +1,9 @@
 import "../Results/Results.css";
 
-const Results = () => {
+const Results = ({ result }) => {
   return (
     <section className="results-wrapper">
+      {console.log('in result component', result)}
       <div className="results-content">
         <div className="results-img-container"></div>
         <div className="results-text-container">
