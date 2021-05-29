@@ -31,9 +31,17 @@
 .results-content-text {
   justify-content: flex-start;
   margin: 0;
+  width: 100px;
+  line-height: 15px;
 }
 
 .results-content-price {
   margin: 0;
   padding: 20px 0 0 0;
+  font-size: 15px;
+}
+
+.img-sizing {
+  width: 100px;
+  height: auto;
 }

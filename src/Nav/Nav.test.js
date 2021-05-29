@@ -6,13 +6,25 @@ import "@testing-library/jest-dom/extend-expect";
 import App from "../App";
 
 describe("Nav", () => {
-  test("directs to cart when cart text clicked", () => {
+  // creating a method for reusability
+  //so i dont have to type render(<Blha/> over n over)
+  const renderApp = (startingRoute = '') => {
     const history = createMemoryHistory();
-    render(
+    //if i pass a value to renderApp method
+    //then push to that value
+    // otherwise dont push to specific route
+    if (startingRoute) {
+      history.push(startingRoute)
+    }
+    return render(
       <Router history={history}>
         <App />
       </Router>
     );
+  }
+
+  test("directs to cart when cart text clicked", () => {
+    renderApp()
     expect(screen.getByText(/Keep the Summer Vibe Alive/i)).toBeInTheDocument();
 
     const leftClick = { button: 0 };
@@ -23,12 +35,7 @@ describe("Nav", () => {
   });
 
   test("directs to about page when About Us text clicked", () => {
-    const history = createMemoryHistory();
-    render(
-      <Router history={history}>
-        <App />
-      </Router>
-    );
+    renderApp()
     expect(screen.getByText(/Keep the Summer Vibe Alive/i)).toBeInTheDocument();
 
     const leftClick = { button: 0 };
@@ -38,13 +45,7 @@ describe("Nav", () => {
   });
 
   test("directs to home page when Cloud text clicked", () => {
-    const history = createMemoryHistory();
-    history.push("/about");
-    render(
-      <Router history={history}>
-        <App />
-      </Router>
-    );
+    renderApp('/about')
     expect(screen.getByText(/Let it drip/i)).toBeInTheDocument();
 
     const leftClick = { button: 0 };
@@ -52,4 +53,35 @@ describe("Nav", () => {
 
     expect(screen.getByText(/keep the summer vibe alive/i)).toBeInTheDocument();
   });
+
+  describe('searchbar', () => {
+    test("render searchbar", () => {
+      renderApp()
+  
+      const inputEl = screen.getByRole('textbox', {name: 'search-bar'});
+      expect(inputEl).toBeVisible();
+    });
+
+    //test submission
+    //type a value and 
+    // do the action of clicking submit
+    test('searchbar should search for input value', () => {
+      renderApp()
+  
+      const inputEl = screen.getByRole('textbox', {name: 'search-bar'})
+        userEvent.type(inputEl, 'Hello{enter}')
+        expect(screen.getByText(/team favorites/i)).toBeInTheDocument();
+    })
+
+    // test empty string redirect
+    //all i need to do is check screen text
+    test('empty string redirect', () => {
+      renderApp()
+      
+      const inputEl = screen.getByRole('textbox', {name: 'search-bar'})
+        userEvent.type(inputEl, '{enter}')
+        expect(screen.getByText(/team favorites/i)).toBeInTheDocument();
+    })
+  })
+   
 });

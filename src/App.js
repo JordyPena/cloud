@@ -1,99 +1,76 @@
-import Home from './Home/Home';
-import Nav from './Nav/Nav';
-import Footer from './Footer/Footer';
-import { Route } from 'react-router-dom';
-import Landing from './Landing/Landing';
-import Cart from './Cart/Cart';
-import About from './About/About';
-import Results from './Results/Results';
-import Summary from './Summary/Summary';
-import { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
 import "./Searchbar/Searchbar.css";
-function App() {
+import { Route, useHistory, Redirect } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Home from "./Home/Home";
+import Nav from "./Nav/Nav";
+import Footer from "./Footer/Footer";
+import Landing from "./Landing/Landing";
+import Cart from "./Cart/Cart";
+import About from "./About/About";
+import Results from "./Results/Results";
+import Summary from "./Summary/Summary";
 
+const App = () => {
   const [allResults, setAllResults] = useState([]);
   const history = useHistory();
-  const [userInput, setUserInput] = useState("");
-  const [result, setResult] = useState();
-
-  const regex = new RegExp(userInput, 'i')
+  const [result, setResult] = useState([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
-    .then((response) => response.json())
-    .then((data) => {
-      setAllResults(data)
+      .then((response) => response.json())
+      .then((data) => {
+        
+        setAllResults(data);
+      });
+  }, []);
+  
+  const searchSubmitted = (userInput) => {
+    if (!userInput) {
+      history.push("/landingPage");
+      return;
+    }
+    const regex = new RegExp(userInput, "i");
+    console.log(allResults);
+    let newArray = allResults.filter((item) => {
+      return item.title.match(regex);
     });
-  }, [])
-
-  const searchbar = (
-    <form className="form-searchbar" onSubmit={(e) => searchSubmitted(e)}>
-      <input
-        className="form-searchbar-input"
-        type="text"
-        value={userInput}
-        name="searchBar"
-        onChange={(e) => inputChange(e)}
-      />
-    </form>
-  )
-
-  const inputChange = (e) => {
-    setUserInput(e.target.value);
-  };
-
-  const searchSubmitted = (e) => {
-    e.preventDefault();
-   console.log(allResults)
-   let newArray = allResults.filter((item) => {
-     return item.title.match(regex)
-   })
-   console.log(newArray)
-   setResult(newArray)
-   history.push('/results')
+    console.log(newArray);
+    setResult(newArray);
+    history.push("/results");
   };
 
   return (
     <>
-    <Nav allResults={allResults} searchbar={searchbar}/>
+      <Nav   
+        searchSubmitted={searchSubmitted}
+      />
 
-    <Route
-      exact
-      path='/'
-      component={Home}
-    />
+      <Route exact path="/" component={Home} />
 
-    <Route
-      exact 
-      path='/landingPage'
-      component={Landing}
-    />
+      <Route exact path="/landingPage" component={Landing} />
 
-    <Route
-      exact
-      path='/cart'
-      component={Cart}
-    />
+      <Route exact path="/cart" component={Cart} />
 
-    <Route
-      exact
-      path='/about'
-      component={About}
-    />
+      <Route exact path="/about" component={About} />
 
-    <Route
-      exact
-      path='/results'
-      render={() => <Results result={result} />}
-    />
+      <Route
+        exact
+        path="/results"
+        render={() =>
+          result.length ? (
+            //take the prop out
+            //need to create a component
+            //that handles rendering all the filtered items
+            //and import that into results
+            <Results result={result} />
+          ) : (
+            <Redirect to="/landingPage" />
+          )
+        }
+      />
 
-    <Route
-      exact
-      path='/summary'
-      component={Summary}
-    />
-    <Footer/>
+      <Route exact path="/summary" component={Summary} />
+      <Footer />
     </>
   );
 }
