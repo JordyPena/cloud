@@ -37,3 +37,8 @@
   margin: 0;
   padding: 20px 0 0 0;
 }
+
+.img-sizing {
+  width: 100px;
+  height: auto;
+}
