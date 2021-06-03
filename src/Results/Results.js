@@ -6,40 +6,30 @@ const Results = ({ result, allResults }) => {
   const history = useHistory();
 
   const [queryData, setQueryData] = useState([]);
-
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     if (history.location.search === `?category=men's clothing`) {
       let newArray = allResults.filter((item) => {
         return item.category === `men's clothing`;
       });
-      setQueryData(newArray);
+      setProducts(newArray);
     } else if (history.location.search === `?category=women's clothing`) {
       let newArray = allResults.filter((item) => {
         return item.category === `women's clothing`;
       });
-      setQueryData(newArray);
-    }
-  }, [history, allResults]);
+      setProducts(newArray);
+    } else setProducts(result)
+  }, [history, allResults, result]);
 
   return (
     <>
-      {queryData.length ? "" :
-        result.map((item, idx) => {
-          return (
-            <div key={idx}>
-              <Item item={item} />
-            </div>
-          );
-        })}
-
-      {
-        queryData.map((item, idx) => {
-          return (
-            <div key={idx}>
-              <Item item={item} />
-            </div>
-          );
-        })}
+      {products.map((item, idx) => {
+        return (
+          <div key={idx}>
+            <Item item={item} />
+          </div>
+        );
+      })}
     </>
   );
 };
