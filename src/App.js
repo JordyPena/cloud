@@ -13,7 +13,7 @@ import Summary from "./Summary/Summary";
 const App = () => {
   const [allResults, setAllResults] = useState([]);
   const history = useHistory();
-  const [result, setResult] = useState(['hello']);
+  const [result, setResult] = useState([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -63,15 +63,15 @@ const App = () => {
         exact
         path="/products"
         render={() =>
-          result.length ? (
+          // result.length ? (
             //take the prop out
             //need to create a component
             //that handles rendering all the filtered items
             //and import that into results
             <Results result={result} allResults={allResults}/>
-          ) : (
-            <Redirect to="/landingPage" />
-          )
+          // ) : (
+          //   <Redirect to="/landingPage" />
+          // )
         }
       />
 
