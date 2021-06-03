@@ -23,21 +23,23 @@ const Results = ({ result, allResults }) => {
 
   return (
     <>
-      {result.map((item, idx) => {
-        return (
-          <div key={idx}>
-            <Item item={item} />
-          </div>
-        );
-      })}
+      {queryData.length ? "" :
+        result.map((item, idx) => {
+          return (
+            <div key={idx}>
+              <Item item={item} />
+            </div>
+          );
+        })}
 
-      {queryData.map((item, idx) => {
-        return (
-          <div key={idx}>
-            <Item item={item} />
-          </div>
-        );
-      })}
+      {
+        queryData.map((item, idx) => {
+          return (
+            <div key={idx}>
+              <Item item={item} />
+            </div>
+          );
+        })}
     </>
   );
 };

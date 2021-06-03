@@ -1,5 +1,4 @@
 import "../Landing/Landing.css";
-import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const Landing = () => {
