@@ -24,6 +24,6 @@ describe('Item', () => {
   }
 
   test('renders item', () => {
-    renderApp('/results');
+    renderApp('/products');
   })
 })
