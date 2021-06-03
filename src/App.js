@@ -13,7 +13,7 @@ import Summary from "./Summary/Summary";
 const App = () => {
   const [allResults, setAllResults] = useState([]);
   const history = useHistory();
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState(['hello']);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -36,9 +36,9 @@ const App = () => {
     });
     console.log(newArray);
     setResult(newArray);
-    history.push("/results");
+    history.push('/products');
   };
-
+  
   return (
     <>
       <Nav   
@@ -47,7 +47,13 @@ const App = () => {
 
       <Route exact path="/" component={Home} />
 
-      <Route exact path="/landingPage" component={Landing} />
+      <Route
+       exact
+       path="/landingPage"
+       render={() => (
+         <Landing  />
+       )}
+      />
 
       <Route exact path="/cart" component={Cart} />
 
@@ -55,14 +61,14 @@ const App = () => {
 
       <Route
         exact
-        path="/results"
+        path="/products"
         render={() =>
           result.length ? (
             //take the prop out
             //need to create a component
             //that handles rendering all the filtered items
             //and import that into results
-            <Results result={result} />
+            <Results result={result} allResults={allResults}/>
           ) : (
             <Redirect to="/landingPage" />
           )
@@ -70,6 +76,7 @@ const App = () => {
       />
 
       <Route exact path="/summary" component={Summary} />
+
       <Footer />
     </>
   );
