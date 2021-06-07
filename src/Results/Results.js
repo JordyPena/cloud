@@ -5,7 +5,6 @@ import Item from "../Item/Item";
 const Results = ({ result, allResults }) => {
   const history = useHistory();
 
-  const [queryData, setQueryData] = useState([]);
   const [products, setProducts] = useState([]);
   useEffect(() => {
     if (history.location.search === `?category=men's clothing`) {
@@ -18,7 +17,7 @@ const Results = ({ result, allResults }) => {
         return item.category === `women's clothing`;
       });
       setProducts(newArray);
-    } else setProducts(result)
+    } else setProducts(result);
   }, [history, allResults, result]);
 
   return (

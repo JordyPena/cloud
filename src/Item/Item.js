@@ -3,7 +3,9 @@ const Item = ({ item }) => {
   
   return (
     <section className="results-wrapper" data-testid='item-renders'>
-    <div className="results-content">
+    <div className="results-content"
+     
+    >
       <div className="results-img-container">
         <img src={item.image} alt='item' className='img-sizing'/>
       </div>
