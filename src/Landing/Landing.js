@@ -19,38 +19,33 @@ const Landing = () => {
         <select
           className="select-category"
           onChange={(e) => categorySelected(e)}
+          aria-label="select-dropdown"
         >
           <option>Select a category</option>
           <option value="men's clothing">Men's clothing</option>
           <option value="women's clothing">Women's clothing</option>
         </select>
-        <label>Results limit</label>
-        <select className="select-limit">
-          <option value="10">10</option>
-          <option value="20">20</option>
-          <option value="30">30</option>
-        </select>
       </header>
       <section>
-        <p>Dope shirt</p>
+        <p>Men's blue shirt</p>
         <div className="first-img-container">
           <div className="first-img"></div>
         </div>
       </section>
       <section>
-        <p>Womens White shirt</p>
+        <p>Women's white shirt</p>
         <div className="second-img-container">
           <div className="second-img"></div>
         </div>
       </section>
       <section>
-        <p>Womens Red shirt</p>
+        <p>Women's red shirt</p>
         <div className="third-img-container">
           <div className="third-img"></div>
         </div>
       </section>
       <section>
-        <p>Mens 1/4 shirt</p>
+        <p>Men's 1/4 shirt</p>
         <div className="fourth-img-container">
           <div className="fourth-img"></div>
         </div>
