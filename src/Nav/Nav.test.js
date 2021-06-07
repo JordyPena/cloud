@@ -82,6 +82,6 @@ describe("Nav", () => {
         userEvent.type(inputEl, '{enter}')
         expect(screen.getByText(/team favorites/i)).toBeInTheDocument();
     })
-  })
+  })   
    
 });
