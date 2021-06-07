@@ -63,15 +63,15 @@ const App = () => {
         exact
         path="/products"
         render={() =>
-          // result.length ? (
+          result.length ? (
             //take the prop out
             //need to create a component
             //that handles rendering all the filtered items
             //and import that into results
             <Results result={result} allResults={allResults}/>
-          // ) : (
-          //   <Redirect to="/landingPage" />
-          // )
+          ) : (
+            <Redirect to="/landingPage" />
+          )
         }
       />
 
