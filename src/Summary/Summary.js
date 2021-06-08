@@ -1,48 +1,38 @@
 import '../Summary/Summary.css';
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import SumItem from '../Summary-item/Sum-item';
+const Summary = ({ allResults }) => {
 
-const Summary = () => {
+  const history = useHistory();
+  const [item, setItem] = useState([]);
 
+  useEffect(() => {
+    console.log('history search', history.location.search)
+    let historyId = parseInt(history.location.search.slice(6, 8))
+    console.log('number ', historyId)
+    let newArray = allResults.filter((item) => {
+      console.log('item in filter', item)
+      return item.id === historyId
+    })
+   setItem(newArray)
+  }, [allResults, history])
+
+  useEffect(() => {
+    
+    console.log('i got item', item)
+  }, [item])
   return (
-    <main className='summary-wrapper'>
-      <header className='summary-header-container'>
-        <div className='summary-header-left'>
-        <p className='summary-header-content'>Men's Shoe</p>
-        <p className='summary-header-content'>Nike Air Force 1 '07</p>
-        </div>
+    <>
+   {item.map((item, idx) => {
+     return (
+       <div key={idx}>
 
-        <div className='summary-header-right'>
-          <p>$90</p>
-        </div>
-      </header>
-      <section className='summary-img-container'>
-        <p className='summary-img'>Item img</p>
-      </section>
-      <section className='summary-alt-img-container'>
-        <div className='summary-alt-content'>
-        <p >Item other imgs</p>
-        </div>
-        <div className='summary-alt-content'>
-        <p >Item other imgs</p>
-        </div>
-      </section>
-      <section className='summary-sizes-wrapper'>
-        <p>Select Size</p>
-        <div className='summary-content-container'>
-         <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
-         <label for='radioApple'>M 9 / W 10.5</label>
-         <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
-         <label for='radioApple'>M 9 / W 10.5</label>
-         <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
-         <label for='radioApple'>M 9 / W 10.5</label>
-         <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
-         <label for='radioApple'>M 9 / W 10.5</label>
-         <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
-         <label for='radioApple'>M 9 / W 10.5</label>
-        
-        </div>
-      <button className='summary-button'>Add to Bag</button>
-      </section>
-    </main>
+         <SumItem item={item} />
+       </div>
+     )
+   })}
+   </>
   )
 }
 export default Summary;
