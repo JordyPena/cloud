@@ -1,5 +1,8 @@
 import "../Summary-item/Sum-item.css";
+import { useState } from 'react';
 const SumItem = ({item}) => {
+
+  const [currentImg, setCurrentImg] = useState(item.image);
 
   return (
     <main className='summary-wrapper'>
@@ -14,28 +17,28 @@ const SumItem = ({item}) => {
       </div>
     </header>
     <section className='summary-img-container'>
-      <img src={item.image} alt='item' className='summary-img'/>
+      <img src={currentImg} alt='item' className='summary-img'/>
     </section>
     <section className='summary-alt-img-container'>
       <div className='summary-alt-content'>
-      <img src={item.image} alt='item' className='summary-alt-img'/>
+      <img src={item.image} alt='item' className='summary-alt-img' onClick={() => setCurrentImg(item.image)}/>
       </div>
       <div className='summary-alt-content'>
-      <img src={item.image} alt='item' className='summary-alt-img'/>
+      <img src={item.image} alt='item' className='summary-alt-img' onClick={() => setCurrentImg(item.image)}/>
       </div>
     </section>
     <section className='summary-sizes-wrapper'>
       <p>Select Size</p>
       <div className='summary-content-container'>
-       <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
+       <input type='radio' value='XS' id='radioApple' name='size' className='summary-size-style'/> 
        <label for='radioApple'>XS</label>
-       <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
+       <input type='radio' value='S' id='radioApple' name='size' className='summary-size-style'/> 
        <label for='radioApple'>S</label>
-       <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
+       <input type='radio' value='M' id='radioApple' name='size' className='summary-size-style'/> 
        <label for='radioApple'>M</label>
-       <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
+       <input type='radio' value='L' id='radioApple' name='size' className='summary-size-style'/> 
        <label for='radioApple'>L</label>
-       <input type='radio' value='M 9 / W 10.5' id='radioApple' name='size' className='summary-size-style'/> 
+       <input type='radio' value='XL' id='radioApple' name='size' className='summary-size-style'/> 
        <label for='radioApple'>XL</label>
       
       </div>
