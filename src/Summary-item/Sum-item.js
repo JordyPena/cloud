@@ -1,22 +1,32 @@
 import "../Summary-item/Sum-item.css";
 import { useState } from "react";
+import { useHistory } from 'react-router-dom';
+
 const SumItem = ({ item }) => {
   const [currentImg, setCurrentImg] = useState(item.image);
   const [selectedSize, setSelectedSize] = useState("");
-  //figure out how to get
-  //radio buttons to work
-  //then save choice into state
-  // once add to bad buttons clicked
-  // pass the item added
-  // and the size
+  const [notification, setNotification] = useState(false);
+  const [currentItem] = useState(item.title);
+  const history = useHistory();
 
   const buttonSelected = (e) => {
+    if (e.target.value) {
+      setNotification(false)
+    }
     console.log("radio selected", e.target.value);
     setSelectedSize(e.target.value);
   };
   const addToBag = (e) => {
     e.preventDefault();
     console.log("button working", selectedSize);
+    if (selectedSize === "") {
+      return setNotification(true);
+    } else setNotification(false);
+
+    history.push({
+      pathname: "/cart",
+      search: `?item=${currentItem}&size=${selectedSize}`,
+    })
   };
   return (
     <main className="summary-wrapper">
@@ -53,7 +63,8 @@ const SumItem = ({ item }) => {
       </section>
       <section className="summary-sizes-wrapper">
         <p>Select Size</p>
-        <p>Selected Size: {selectedSize}</p>
+        {notification === true && <p>Please Choose A Size</p>}
+        
 
         <form
           className="summary-content-container"
