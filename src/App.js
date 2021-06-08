@@ -75,7 +75,11 @@ const App = () => {
         }
       />
 
-      <Route exact path="/summary" component={Summary} />
+      <Route 
+        exact 
+        path="/summary" 
+        render={() => <Summary allResults={allResults}/>}
+      />
 
       <Footer />
     </>
