@@ -1,13 +1,26 @@
 import "../Landing/Landing.css";
 import { useHistory } from "react-router-dom";
 
-const Landing = () => {
+const Landing = ({ allResults }) => {
   const history = useHistory();
 
   const categorySelected = (e) => {
     history.push({
       pathname: "/products",
       search: `?category=${e.target.value}`,
+    });
+  };
+
+  const itemSelected = (e) => {
+    let number = parseInt(e.target.id);
+
+    let newArray = allResults.filter((item) => {
+      return item.id === number;
+    });
+
+    history.push({
+      pathname: "/products",
+      search: `?item=${newArray[0].title}`,
     });
   };
 
@@ -27,27 +40,43 @@ const Landing = () => {
         </select>
       </header>
       <section>
-        <p>Men's blue shirt</p>
+        <p>Mens Casual Slim Fit</p>
         <div className="first-img-container">
-          <div className="first-img"></div>
+          <div
+            onClick={(e) => itemSelected(e)}
+            className="first-img"
+            id="4"
+          ></div>
         </div>
       </section>
       <section>
-        <p>Women's white shirt</p>
+        <p>Women's Solid Short Sleeve Boat Neck V</p>
         <div className="second-img-container">
-          <div className="second-img"></div>
+          <div
+            onClick={(e) => itemSelected(e)}
+            className="second-img"
+            id="18"
+          ></div>
         </div>
       </section>
       <section>
-        <p>Women's red shirt</p>
+        <p>Opna Women's Short Sleeve Moisture</p>
         <div className="third-img-container">
-          <div className="third-img"></div>
+          <div
+            onClick={(e) => itemSelected(e)}
+            className="third-img"
+            id="19"
+          ></div>
         </div>
       </section>
       <section>
-        <p>Men's 1/4 shirt</p>
+        <p>Mens Casual Premium Slim Fit T-Shirt</p>
         <div className="fourth-img-container">
-          <div className="fourth-img"></div>
+          <div
+            onClick={(e) => itemSelected(e)}
+            className="fourth-img"
+            id="2"
+          ></div>
         </div>
       </section>
     </main>
