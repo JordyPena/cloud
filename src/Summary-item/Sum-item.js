@@ -4,6 +4,12 @@ const SumItem = ({item}) => {
 
   const [currentImg, setCurrentImg] = useState(item.image);
 
+  //figure out how to get
+  //radio buttons to work
+  //then save choice into state
+  // once add to bad buttons clicked
+  // pass the item added
+  // and the size
   return (
     <main className='summary-wrapper'>
     <header className='summary-header-container'>
