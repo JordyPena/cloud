@@ -58,6 +58,7 @@
 .summary-content-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .summary-content-container input[type='radio'] {
@@ -67,13 +68,16 @@
 }
 
 .summary-content-container label {
-  display: inline-block;
-  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(241, 241, 241);
   padding: 10px 20px;
   font-family: sans-serif, Arial;
   font-size: 16px;
-  border: 2px solid #444;
+  border: 1px solid #fff;
   border-radius: 4px;
+  margin: 2px 0 2px 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .summary-button {
@@ -84,4 +88,13 @@
   background-color: rgba(255, 135, 92);
   border-radius: 20px;
   color: white;
+}
+
+input[type=radio]:checked + label {
+  border-color: rgba(255, 135, 92);
+  
+}
+
+.lbl-radio {
+  width: 50%;
 }
