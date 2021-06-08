@@ -35,4 +35,14 @@ describe('LandingPage', () => {
     expect(inputEl).toBeVisible();
   });
 
+  test("directs to products when img is clicked", () => {
+    renderApp('/landingPage')
+    expect(screen.getByText(/Team Favorites/i)).toBeInTheDocument();
+
+    const leftClick = { button: 0 };
+    userEvent.click(screen.getByTestId("img-element"), leftClick);
+
+    expect(screen.getByText(/Mens Casual Slim Fit/i)).toBeInTheDocument();
+  });
+
 })

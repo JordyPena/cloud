@@ -43,6 +43,7 @@ const Landing = ({ allResults }) => {
         <p>Mens Casual Slim Fit</p>
         <div className="first-img-container">
           <div
+            data-testid="img-element"
             onClick={(e) => itemSelected(e)}
             className="first-img"
             id="4"
