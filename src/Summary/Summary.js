@@ -6,7 +6,6 @@ const Summary = ({ allResults }) => {
 
   const history = useHistory();
   const [item, setItem] = useState([]);
-
   useEffect(() => {
   
     let historyId = parseInt(history.location.search.slice(6, 8))
