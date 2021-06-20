@@ -1,6 +1,29 @@
 import "../Cart/Cart.css";
+import { useHistory } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
+import { CartContext } from "../Context/cartContext";
+
 
 const Cart = () => {
+
+  const { cart } = useContext(CartContext)
+  //  //grab the query string using 
+  //  const queryString = window.location.search;
+  
+  //  //we can parse the query string's parameters using
+  //  const urlParams = new URLSearchParams(queryString);
+  //  //call methods on the result
+  //  console.log('urlParams', urlParams)
+  //  // item.title
+  //  const itemParam = urlParams.get('item')
+  //  console.log('item', itemParam)
+  //  //item size
+  //  const sizeParam = urlParams.get('size')
+  //  console.log('size', sizeParam)
+
+  console.log('cart in context', cart)
+  
+
   return (
     <>
       <main className="cart-wrapper">

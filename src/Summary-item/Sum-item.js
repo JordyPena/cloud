@@ -1,13 +1,15 @@
 import "../Summary-item/Sum-item.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useHistory } from 'react-router-dom';
+import { CartContext } from "../Context/cartContext";
 
 const SumItem = ({ item }) => {
   const [currentImg, setCurrentImg] = useState(item.image);
   const [selectedSize, setSelectedSize] = useState("");
   const [notification, setNotification] = useState(false);
-  const [currentItem] = useState(item.title);
+  const [currentItem] = useState(item);
   const history = useHistory();
+  const { addToCart } = useContext(CartContext)
 
   const buttonSelected = (e) => {
     if (e.target.value) {
@@ -23,10 +25,11 @@ const SumItem = ({ item }) => {
       return setNotification(true);
     } else setNotification(false);
 
-    history.push({
-      pathname: "/cart",
-      search: `?item=${currentItem}&size=${selectedSize}`,
-    })
+    addToCart(currentItem, selectedSize)
+    // history.push({
+    //   pathname: "/cart",
+    //   search: `?item=${currentItem.title}&size=${selectedSize}`,
+    // })
   };
   return (
     <main className="summary-wrapper">
