@@ -26,10 +26,9 @@ const SumItem = ({ item }) => {
     } else setNotification(false);
 
     addToCart(currentItem, selectedSize)
-    // history.push({
-    //   pathname: "/cart",
-    //   search: `?item=${currentItem.title}&size=${selectedSize}`,
-    // })
+    history.push({
+      pathname: "/cart",
+    })
   };
   return (
     <main className="summary-wrapper">

@@ -9,15 +9,11 @@ import Cart from "./Cart/Cart";
 import About from "./About/About";
 import Results from "./Results/Results";
 import Summary from "./Summary/Summary";
-import { CartContext } from "./Context/cartContext";
 
 const App = () => {
   const [allResults, setAllResults] = useState([]);
   const history = useHistory();
   const [result, setResult] = useState([]);
-
-  //context.provider 
-  const {cart, addToCart, removeFromCart } = useContext(CartContext);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")

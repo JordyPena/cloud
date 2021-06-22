@@ -1,7 +1,7 @@
 import "../Cart-item/Cart-item.css"
 
 
-const CartItem = ({ item, itemCounter }) => {
+const CartItem = ({ item, itemCounter, itemsTotal }) => {
 
   console.log('inside cart item', item)
   console.log('counter counter', itemCounter)
@@ -12,8 +12,14 @@ const CartItem = ({ item, itemCounter }) => {
         <p>Bag</p>
       </header>
       <div className="cart-titles">
-        <p className='cart-titles-text'>{itemCounter} Items</p>
-        <p className='cart-titles-text'>Total: </p>
+        {itemCounter !== 0 && (
+          <>
+          <p className='cart-titles-text'>{itemCounter} Items</p>
+
+          <p className='cart-titles-text'>Total: {itemsTotal}</p>
+          </>
+        )
+        }
       </div>
       <div className="cart-items">
         <div className="cart-img-container">
