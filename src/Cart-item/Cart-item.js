@@ -1,10 +1,20 @@
 import "../Cart-item/Cart-item.css"
-
+import { useContext } from "react"
+import { CartContext } from "../Context/cartContext"
 
 const CartItem = ({ item, itemCounter, itemsTotal }) => {
 
   console.log('inside cart item', item)
   console.log('counter counter', itemCounter)
+
+  const { removeFromCart } = useContext(CartContext);
+
+
+  const removeItem = (id) => {
+    console.log('working', id)
+    removeFromCart(id)
+  }
+
   return (
     <>
     <main className="cart-wrapper">
@@ -38,23 +48,9 @@ const CartItem = ({ item, itemCounter, itemsTotal }) => {
         <p>{item.item.category}</p>
         <p>Size</p>
         <p>{item.size}</p>
-        <button className='remove-button'>Remove</button>
+        <button className='remove-button' onClick={() => removeItem(item.item.id)}>Remove</button>
       </div>
       <hr />
-      
-      <section className="cart-total">
-        <p className="summary-title">Summary</p>
-        <div className="cart-total-text">
-          <p>Subtotal: $270.00</p>
-          <p>Estimated Shipping: $8.00</p>
-          <p>Estimated Tax: $22.93</p>
-          <p>Total: $292.93</p>
-        </div>
-      </section>
-      <section className="cart-button-container">
-        <button className="shop-button-style">Shop More</button>
-        <button className="checkout-button-style">Checkout</button>
-      </section>
     </main>
   </>
   )
