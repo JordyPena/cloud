@@ -18,6 +18,7 @@ const SumItem = ({ item }) => {
     console.log("radio selected", e.target.value);
     setSelectedSize(e.target.value);
   };
+  
   const addToBag = (e) => {
     e.preventDefault();
     console.log("button working", selectedSize);
@@ -26,10 +27,9 @@ const SumItem = ({ item }) => {
     } else setNotification(false);
 
     addToCart(currentItem, selectedSize)
-    // history.push({
-    //   pathname: "/cart",
-    //   search: `?item=${currentItem.title}&size=${selectedSize}`,
-    // })
+    history.push({
+      pathname: "/cart",
+    })
   };
   return (
     <main className="summary-wrapper">

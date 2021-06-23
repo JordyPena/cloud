@@ -1,6 +1,7 @@
 import "./Searchbar/Searchbar.css";
 import { Route, useHistory, Redirect,  } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
+import { CartContext } from "./Context/cartContext";
 import Home from "./Home/Home";
 import Nav from "./Nav/Nav";
 import Footer from "./Footer/Footer";
@@ -9,15 +10,14 @@ import Cart from "./Cart/Cart";
 import About from "./About/About";
 import Results from "./Results/Results";
 import Summary from "./Summary/Summary";
-import { CartContext } from "./Context/cartContext";
+import Total from "./Total/Total";
 
 const App = () => {
   const [allResults, setAllResults] = useState([]);
   const history = useHistory();
   const [result, setResult] = useState([]);
 
-  //context.provider 
-  const {cart, addToCart, removeFromCart } = useContext(CartContext);
+  const { cart } = useContext(CartContext)
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -92,6 +92,14 @@ const App = () => {
         render={() => <Summary allResults={allResults}/>}
       />
 
+      <Route
+        exact
+        path="/cart"
+        render={() => cart.length ? (
+          <Total/>
+        ) : ""}
+      />
+      
       <Footer />
     </>
   );
