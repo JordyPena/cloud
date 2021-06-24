@@ -4,14 +4,13 @@ import { CartContext } from "../Context/cartContext"
 
 const CartItem = ({ item, itemCounter, itemsTotal }) => {
 
-  console.log('inside cart item', item)
-  console.log('counter counter', itemCounter)
+  
 
   const { removeFromCart } = useContext(CartContext);
 
 
   const removeItem = (id) => {
-    console.log('working', id)
+  
     removeFromCart(id)
   }
 
@@ -34,21 +33,21 @@ const CartItem = ({ item, itemCounter, itemsTotal }) => {
       <div className="cart-items">
         <div className="cart-img-container">
           <img
-            src={item.item.image}
+            src={item.image}
             alt="clothing"
             className="cart-item-img"
           />
         </div>
         <div className="items-top">
-          <p>{item.item.title}</p>
-          <p>${item.item.price}</p>
+          <p>{item.title}</p>
+          <p>${item.price}</p>
         </div>
       </div>
       <div className="items-bottom">
-        <p>{item.item.category}</p>
+        <p>{item.category}</p>
         <p>Size</p>
         <p>{item.size}</p>
-        <button className='remove-button' onClick={() => removeItem(item.item.id)}>Remove</button>
+        <button className='remove-button' onClick={() => removeItem(item.id)}>Remove</button>
       </div>
       <hr />
     </main>
