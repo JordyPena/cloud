@@ -1,5 +1,5 @@
 import "./Searchbar/Searchbar.css";
-import { Route, useHistory, Redirect,  } from "react-router-dom";
+import { Route, useHistory, Redirect } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { CartContext } from "./Context/cartContext";
 import Home from "./Home/Home";
@@ -17,17 +17,16 @@ const App = () => {
   const history = useHistory();
   const [result, setResult] = useState([]);
 
-  const { cart } = useContext(CartContext)
+  const { cart } = useContext(CartContext);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => {
-        
         setAllResults(data);
       });
   }, []);
-  
+
   const searchSubmitted = (userInput) => {
     if (!userInput) {
       history.push("/landingPage");
@@ -40,69 +39,64 @@ const App = () => {
     });
     console.log(newArray);
     setResult(newArray);
-    history.push('/products');
+    history.push("/products");
   };
-  
+
   return (
     <>
-      <Nav   
-        searchSubmitted={searchSubmitted}
-      />
+      <Nav searchSubmitted={searchSubmitted} />
 
       <Route exact path="/" component={Home} />
 
       <Route
-       exact
-       path="/landingPage"
-       render={() => (
-         <Landing  allResults={allResults}/>
-       )}
+        exact
+        path="/landingPage"
+        render={() => <Landing allResults={allResults} />}
       />
-     
-     
-        <Route 
-          exact 
-          path="/cart" 
-          render={() => <Cart allResults={allResults}/>
-          }
-        />
-     
+
+      <Route
+        exact
+        path="/cart"
+        render={() =>
+          cart.length ? (
+            <Cart allResults={allResults} />
+          ) : (
+            <Redirect to="/landingPage" />
+          )
+        }
+      />
 
       <Route exact path="/about" component={About} />
 
       <Route
         exact
         path="/products"
-        render={() =>
-          // result.length ? (
+        render={
+          () => (
+            // result.length ? (
             //take the prop out
             //need to create a component
             //that handles rendering all the filtered items
             //and import that into results
-            <Results result={result} allResults={allResults}/>
+            <Results result={result} allResults={allResults} />
+          )
           // ) : (
           //   <Redirect to="/landingPage" />
           // )
         }
       />
 
-      <Route 
-        exact 
-        path="/summary" 
-        render={() => <Summary allResults={allResults}/>}
-      />
-
       <Route
         exact
-        path="/cart"
-        render={() => cart.length ? (
-          <Total/>
-        ) : ""}
+        path="/summary"
+        render={() => <Summary allResults={allResults} />}
       />
-      
+
+      <Route exact path="/cart" render={() => (cart.length ? <Total /> : "")} />
+
       <Footer />
     </>
   );
-}
+};
 
 export default App;

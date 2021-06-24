@@ -15,13 +15,13 @@ const SumItem = ({ item }) => {
     if (e.target.value) {
       setNotification(false)
     }
-    console.log("radio selected", e.target.value);
+  
     setSelectedSize(e.target.value);
   };
   
   const addToBag = (e) => {
     e.preventDefault();
-    console.log("button working", selectedSize);
+   
     if (selectedSize === "") {
       return setNotification(true);
     } else setNotification(false);
