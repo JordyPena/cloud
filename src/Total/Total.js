@@ -3,33 +3,6 @@ import { useContext, useEffect, useState } from "react";
 
 const Total = () => {
   const { subTotal, tax, total } = useContext(CartContext);
-
-  // useEffect(() => {
-  //   // loop each item in cart
-  //   // add all the prices together
-  //   // let cartSum = 0;
-  //   // cart.map((item) => {
-  //   //   return setItemsTotal((cartSum += item.item.price));
-  //   // });
-
-  //   // setTax((Number(itemsTotal) * 0.825).toFixed(2));
-
-  //   // setTotal(itemsTotal + shippingCost + parseInt(tax));
-
-  //   let price = 0;
-  //   let tax = 0;
-  //   const shipping = 8.0;
-
-  //   for (let i = 0; i < cart.length; i++) {
-  //     price += cart[i].item.price;
-  //   }
-
-  //   tax = (Number(price) * 0.0825).toFixed(2);
-
-  //   const cartTotal = price + shipping + tax;
-
-  //   console.log(cartTotal);
-  // }, [cart, itemsTotal, shippingCost, tax]);
  
   console.log('checking checking', subTotal)
   return (
