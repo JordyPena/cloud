@@ -45,3 +45,8 @@
   width: 100px;
   height: auto;
 }
+
+.no-results {
+  display: flex;
+  justify-content: center;
+}
