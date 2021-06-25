@@ -50,6 +50,7 @@ const Results = ({ result, allResults }) => {
 
   return (
     <>
+      {products.length === 0 && <p className='no-results'>No results found...</p>}
       {products.length >= 1
         ? products.map((item, idx) => {
             return (

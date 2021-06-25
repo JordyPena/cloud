@@ -1,10 +1,20 @@
 import { CartContext } from "../Context/cartContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 const Total = () => {
   const { subTotal, tax, total } = useContext(CartContext);
+  const history = useHistory();
  
   console.log('checking checking', subTotal)
+
+  const continueShopping = () => {
+    history.push('/landingPage')
+  }
+
+  const checkout = () => {
+    history.push('/checkout')
+  }
   return (
     <>
       <section className="cart-total">
@@ -17,8 +27,8 @@ const Total = () => {
         </div>
       </section>
       <section className="cart-button-container">
-        <button className="shop-button-style">Shop More</button>
-        <button className="checkout-button-style">Checkout</button>
+        <button className="shop-button-style" onClick={() => continueShopping()}>Shop More</button>
+        <button className="checkout-button-style" onClick={() => checkout()}>Checkout</button>
       </section>
     </>
   );
