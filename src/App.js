@@ -11,6 +11,7 @@ import About from "./About/About";
 import Results from "./Results/Results";
 import Summary from "./Summary/Summary";
 import Total from "./Total/Total";
+import Checkout from "./Checkout/Checkout";
 
 const App = () => {
   const [allResults, setAllResults] = useState([]);
@@ -93,6 +94,8 @@ const App = () => {
       />
 
       <Route exact path="/cart" render={() => (cart.length ? <Total /> : "")} />
+
+      <Route exact path="/checkout" render={() => <Checkout />} />
 
       <Footer />
     </>
