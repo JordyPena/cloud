@@ -12,6 +12,9 @@ const Landing = ({ allResults }) => {
   };
 
   const itemSelected = (e) => {
+
+    if (!allResults) return;
+    
     let number = parseInt(e.target.id);
 
     let newArray = allResults.filter((item) => {

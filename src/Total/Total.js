@@ -1,5 +1,5 @@
 import { CartContext } from "../Context/cartContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 const Total = () => {
@@ -15,6 +15,7 @@ const Total = () => {
   const checkout = () => {
     history.push('/checkout')
   }
+
   return (
     <>
       <section className="cart-total">
@@ -23,7 +24,7 @@ const Total = () => {
           <p>Subtotal: {subTotal}</p>
           <p>Estimated Shipping: $ 8.00</p>
           <p>Estimated Tax: $ {tax}</p>
-          <p>Total: $ {total}</p>
+          <p>Total: $ {Number(total).toFixed(2)}</p>
         </div>
       </section>
       <section className="cart-button-container">
