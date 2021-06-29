@@ -3,13 +3,13 @@
   flex-direction: column;
 }
 
-.checkout-address {
+.checkout-address, .checkout-payment {
   display: flex;
   flex-direction: column;
   margin: 10px 15px 10px 15px;
 }
 
-.delivery-label {
+.delivery-label, .payment-label {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -20,7 +20,7 @@
   padding: 10px 0 10px 15px;
 }
 
-.delivery-form {
+.delivery-form, .payment-form {
   display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,7 +30,12 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-.delivery-button {
+.address-inputs, .payment-inputs {
+  height: 38px;
+  margin: 10px 0 10px 0;
+}
+
+.delivery-button, .payment-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,11 +43,6 @@
   color: white;
   height: 40px;
   width: 70%;
-}
-
-.address-inputs {
-  height: 38px;
-  margin: 10px 0 10px 0;
 }
 /* .checkout-payment {
   width: 100px;
