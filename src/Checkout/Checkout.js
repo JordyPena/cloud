@@ -1,6 +1,7 @@
 import "../Checkout/Checkout.css";
 import CartHeader from "../Cart-header/Cart-header";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { FcCheckmark } from "react-icons/fc";
 const Checkout = () => {
   const [deliveryDataReceived, setDeliveryDateReceived] = useState(false);
@@ -15,6 +16,7 @@ const Checkout = () => {
   const [securityCode, setSecurityCode] = useState("");
   const [displayPaymentForm, setDisplayPaymentForm] = useState(false);
   const [orderReview, setOrderReview] = useState(false);
+  const history = useHistory();
 
   const deliverySubmit = (e) => {
     e.preventDefault();
@@ -78,6 +80,13 @@ const Checkout = () => {
       setExpirationDate(e.target.value);
     } else setSecurityCode(e.target.value);
   };
+
+  // handle submitting order
+  //render notification
+  const submitOrder = (e) => {
+    e.preventDefault();
+    history.push("/thanks")
+  }
 
   return (
     <section>
@@ -211,7 +220,7 @@ const Checkout = () => {
               REVIEW
             </label>
 
-            <form className="review-form">
+            <form className="review-form" onSubmit={(e) => submitOrder(e)}>
               <p>
                 {firstName}
                 {lastName}
