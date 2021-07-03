@@ -38,6 +38,7 @@
 
 .items-top {
   display: flex;
+  margin: 0 15px 0 15px;
 }
 
 .items-bottom {
@@ -49,6 +50,7 @@
 .cart-items {
   display: flex;
   justify-content: space-evenly;
+  margin: 0 15px 0 15px;
 }
 
 .cart-total {
