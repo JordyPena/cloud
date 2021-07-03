@@ -12,6 +12,7 @@ import Results from "./Results/Results";
 import Summary from "./Summary/Summary";
 import Total from "./Total/Total";
 import Checkout from "./Checkout/Checkout";
+import Thanks from "./Thanks/Thanks";
 
 const App = () => {
   const [allResults, setAllResults] = useState([]);
@@ -96,6 +97,8 @@ const App = () => {
       <Route exact path="/cart" render={() => (cart.length ? <Total /> : "")} />
 
       <Route exact path="/checkout" render={() => <Checkout />} />
+
+      <Route exact path="/thanks" component={Thanks} />
 
       <Footer />
     </>
