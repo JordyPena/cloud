@@ -1,0 +1,10 @@
+.thanks-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  margin: 0 5px 0 5px;
+  text-align: center;
+  font-size: 15px;
+}
