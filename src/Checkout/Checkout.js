@@ -14,19 +14,20 @@ const Checkout = () => {
   const [expirationDate, setExpirationDate] = useState("");
   const [securityCode, setSecurityCode] = useState("");
   const [displayPaymentForm, setDisplayPaymentForm] = useState(false);
+  const [orderReview, setOrderReview] = useState(false);
 
   const deliverySubmit = (e) => {
     e.preventDefault();
     if (firstName === "") {
-      return 
+      return;
     } else if (lastName === "") {
-      return
+      return;
     } else if (address === "") {
-      return
+      return;
     } else if (email === "") {
-      return
-    }  else if (phone === "") {
-      return
+      return;
+    } else if (phone === "") {
+      return;
     } else if (deliveryDataReceived === false) {
       setDeliveryDateReceived(true);
     }
@@ -43,9 +44,15 @@ const Checkout = () => {
   useEffect(() => {
     if (deliveryDataReceived === true) {
       setDisplayPaymentForm(true);
-    } else if  (paymentDataReceived === false) {
+    }
+
+    if (paymentDataReceived === true) {
       setDisplayPaymentForm(false);
-    } else setDisplayPaymentForm(true)
+    }
+
+    if (deliveryDataReceived === true && paymentDataReceived === true) {
+      setOrderReview(true);
+    }
   }, [deliveryDataReceived, paymentDataReceived]);
 
   // handling delivery inputs
@@ -130,15 +137,13 @@ const Checkout = () => {
               <button className="delivery-button">{`SAVE & CONTINUE`}</button>
             </form>
           ) : (
-            <div className="checkout-container">
-              <div className="checkout-address">
-                <p>
-                  {firstName} {lastName}
-                </p>
-                <p>{address}</p>
-                <p>{email}</p>
-                <p>{phone}</p>
-              </div>
+            <div className="delivery-form">
+              <p>
+                {firstName} {lastName}
+              </p>
+              <p>{address}</p>
+              <p>{email}</p>
+              <p>{phone}</p>
             </div>
           )}
         </div>
@@ -178,27 +183,47 @@ const Checkout = () => {
               </button>
             </form>
           ) : (
-            <div className="checkout-container">
-              <div className="checkout-payment">
-                {paymentDataReceived === true && <>
-                 <p>Payment Method</p>
-                 <p>{expirationDate}</p>
-                 <p>Billing Details</p>
-                 <p>
-                   {firstName} {lastName}
-                 </p>
-                 <p>{address}</p> </>
-                }
-               
-              </div>
-            </div>
+            ""
           )}
 
-          {/* how to get this to render when payment form submitted */}
-          
+          {paymentDataReceived === true && (
+            <div className="payment-form">
+              {paymentDataReceived === true && (
+                <>
+                  <p>Payment Method</p>
+                  <p>{expirationDate}</p>
+                  <p>Billing Details</p>
+                  <p>
+                    {firstName} {lastName}
+                  </p>
+                  <p>{address}</p>{" "}
+                </>
+              )}
+            </div>
+          )}
         </div>
 
-        <div className="checkout-review"></div>
+        {/* review form */}
+        {orderReview === true && (
+          <div className="checkout-review">
+            <label className="review-label">
+              {deliveryDataReceived === true ? <FcCheckmark /> : ""} 3. ORDER
+              REVIEW
+            </label>
+
+            <form className="review-form">
+              <p>
+                {firstName}
+                {lastName}
+              </p>
+              <p>{email}</p>
+              <p>{address}</p>
+              <p>{expirationDate}</p>
+              <CartHeader />
+              <button className="checkout-button">Submit Order</button>
+            </form>
+          </div>
+        )}
       </div>
     </section>
   );
