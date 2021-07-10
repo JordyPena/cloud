@@ -104,3 +104,13 @@
 #root {
   background-color: white;
 }
+
+@media only screen and (min-width: 1024px) {
+  .cart-titles-text {
+    font-size: 25px;
+  }
+
+  .cart-header {
+    font-size: 30px;
+  }
+}

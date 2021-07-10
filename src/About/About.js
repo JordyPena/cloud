@@ -5,7 +5,7 @@ const About = () => {
   return (
     <main className='about-wrapper'>
       <header>
-        <h1>
+        <h1 className='about-header'>
           Cloud
         </h1>
       </header>

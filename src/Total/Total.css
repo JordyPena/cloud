@@ -1,0 +1,13 @@
+@media only screen and (min-width: 1024px) {
+  .summary-title, .summary-totals {
+    font-size: 20px;
+  }
+
+  .cart-button-container {
+    justify-content: center;
+  }
+
+  .shop-button-style, .checkout-button-style {
+    margin: 20px;
+  }
+}

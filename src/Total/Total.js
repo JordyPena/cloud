@@ -1,5 +1,6 @@
+import "../Total/Total.css";
 import { CartContext } from "../Context/cartContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 const Total = () => {
@@ -21,10 +22,10 @@ const Total = () => {
       <section className="cart-total">
         <p className="summary-title">Summary</p>
         <div className="cart-total-text">
-          <p>Subtotal: {subTotal}</p>
-          <p>Estimated Shipping: $ 8.00</p>
-          <p>Estimated Tax: $ {tax}</p>
-          <p>Total: $ {Number(total).toFixed(2)}</p>
+          <p className="summary-totals">Subtotal: {subTotal}</p>
+          <p className="summary-totals">Estimated Shipping: $ 8.00</p>
+          <p className="summary-totals">Estimated Tax: $ {tax}</p>
+          <p className="summary-totals">Total: $ {Number(total).toFixed(2)}</p>
         </div>
       </section>
       <section className="cart-button-container">

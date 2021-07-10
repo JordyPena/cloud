@@ -65,7 +65,7 @@ const SumItem = ({ item }) => {
         </div>
       </section>
       <section className="summary-sizes-wrapper">
-        <p>Select Size</p>
+        <p className='summary-selectSize-text'>Select Size</p>
         {notification === true && <p>Please Choose A Size</p>}
         
 

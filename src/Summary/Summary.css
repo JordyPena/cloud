@@ -98,3 +98,29 @@ input[type=radio]:checked + label {
 .lbl-radio {
   width: 50%;
 }
+
+@media only screen and (min-width: 1024px) {
+  .summary-header-container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    font-size: 20px;
+  }
+
+  .summary-header-right {
+    padding-left: 0;
+  }
+
+  .summary-wrapper {
+    align-items: center;
+  }
+
+  .summary-img-container {
+    margin-left: 0;
+  }
+
+  .summary-selectSize-text {
+    font-size: 20px;
+  }
+}
