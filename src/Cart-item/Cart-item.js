@@ -15,7 +15,7 @@ const CartItem = ({ item }) => {
   }
 
   return (
-    <>
+    <div className="cart-container">
     <main className="cart-wrapper">
       <div className="cart-items">
         <div className="cart-img-container">
@@ -26,19 +26,18 @@ const CartItem = ({ item }) => {
           />
         </div>
         <div className="items-top">
-          <p>{item.title}</p>
-          <p>${item.price}</p>
+          <p className='cart-p-top'>{item.title}</p>
+          <p className='cart-p-top'>${item.price}</p>
         </div>
       </div>
       <div className="items-bottom">
-        <p>{item.category}</p>
-        <p>Size</p>
-        <p>{item.size}</p>
+        <p className='cart-p-bottom'>{item.category}</p>
+        <p className='cart-p-bottom'>Size</p>
+        <p className='cart-p-bottom'>{item.size}</p>
         <button className='remove-button' onClick={() => removeItem(item.id)}>Remove</button>
       </div>
-      <hr />
     </main>
-  </>
+  </div>
   )
 }
 

@@ -66,3 +66,19 @@
   border-radius: 20px;
   color: white;
 }
+
+@media only screen and (min-width: 1024px) {
+  .checkout-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkout-container {
+    width: 70%;
+  }
+
+  .delivery-button, .payment-button {
+    width: 40%;
+  }
+}

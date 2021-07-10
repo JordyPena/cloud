@@ -89,7 +89,7 @@ const Checkout = () => {
   }
 
   return (
-    <section>
+    <section className="checkout-section">
       <header>
         <CartHeader />
       </header>
@@ -205,7 +205,7 @@ const Checkout = () => {
                   <p>
                     {firstName} {lastName}
                   </p>
-                  <p>{address}</p>{" "}
+                  <p>{address}</p>
                 </>
               )}
             </div>
@@ -222,8 +222,7 @@ const Checkout = () => {
 
             <form className="review-form" onSubmit={(e) => submitOrder(e)}>
               <p>
-                {firstName}
-                {lastName}
+                {firstName} {lastName}
               </p>
               <p>{email}</p>
               <p>{address}</p>

@@ -94,9 +94,9 @@ const App = () => {
         render={() => <Summary allResults={allResults} />}
       />
 
-      <Route exact path="/cart" render={() => (cart.length ? <Total /> : "")} />
+      <Route exact path="/cart" render={() => (cart.length ? <Total /> : <Redirect to="/landingPage"/>)} />
 
-      <Route exact path="/checkout" render={() => <Checkout />} />
+      <Route exact path="/checkout" render={() => (cart.length ? <Checkout /> : <Redirect to="/landingPage"/>)} />
 
       <Route exact path="/thanks" component={Thanks} />
 
