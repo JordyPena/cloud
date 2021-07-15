@@ -6,6 +6,7 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  position: relative;
 }
 
 .home-header-container {
@@ -13,7 +14,10 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 60%;
+  position: absolute;
+  top: 200px;
+  left: 10px;
+  right: 10px;
 }
 
 .home-header {
@@ -37,3 +41,4 @@
   font-size: 25px;
   font-weight: bolder;
 }
+
