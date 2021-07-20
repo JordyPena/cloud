@@ -18,9 +18,12 @@ const App = () => {
   const [allResults, setAllResults] = useState([]);
   const history = useHistory();
   const [result, setResult] = useState([]);
+  // const [storageResults, setStorageResults] = useState([]);
 
   const { cart } = useContext(CartContext);
 
+  // const itemsFromLocalStorage = JSON.parse(localStorage.getItem('cart'))
+  
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
@@ -28,7 +31,32 @@ const App = () => {
         setAllResults(data);
       });
   }, []);
+ 
+  // setting storage to existing items in cart
+  // useEffect(() => {
+  //   localStorage.setItem('cart', JSON.stringify(cart))
+  // }, [cart])
 
+  //get id's of all items
+  // save those id's
+  // and fetch corresponding items
+  // save to new cart
+  // render new cart
+  // useEffect(() => {
+        
+  //   if (itemsFromLocalStorage) {
+
+  //     let idsFromStorage = itemsFromLocalStorage.map((item) => {
+  //       return item.id
+  //     })
+  //    console.log('ids in storage', idsFromStorage)
+  //     let result = allResults.filter((item) => {
+  //       return idsFromStorage.includes(item.id)
+  //     })
+  //   console.log('result found', result)
+  //   }
+  // }, [itemsFromLocalStorage, allResults])
+  
   const searchSubmitted = (userInput) => {
     if (!userInput) {
       history.push("/landingPage");
@@ -61,7 +89,7 @@ const App = () => {
         path="/cart"
         render={() =>
           cart.length ? (
-            <Cart allResults={allResults} />
+            <Cart />
           ) : (
             <Redirect to="/landingPage" />
           )

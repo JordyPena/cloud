@@ -2,11 +2,13 @@ import "../Results/Results.css";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Item from "../Item/Item";
+
 const Results = ({ result, allResults }) => {
   const history = useHistory();
 
   const [products, setProducts] = useState([]);
   const [item, setItem] = useState([]);
+
   useEffect(() => {
     if (history.location.search === `?category=men's clothing`) {
       let newArray = allResults.filter((item) => {
