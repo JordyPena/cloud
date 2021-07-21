@@ -1,6 +1,6 @@
 import "./Searchbar/Searchbar.css";
 import { Route, useHistory, Redirect } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { CartContext } from "./Context/cartContext";
 import Home from "./Home/Home";
 import Nav from "./Nav/Nav";
@@ -15,19 +15,9 @@ import Checkout from "./Checkout/Checkout";
 import Thanks from "./Thanks/Thanks";
 
 const App = () => {
-  const [allResults, setAllResults] = useState([]);
   const history = useHistory();
   const [result, setResult] = useState([]);
-
-  const { cart } = useContext(CartContext);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((data) => {
-        setAllResults(data);
-      });
-  }, []);
+  const { cart, allResults } = useContext(CartContext);
 
   const searchSubmitted = (userInput) => {
     if (!userInput) {
@@ -59,13 +49,7 @@ const App = () => {
       <Route
         exact
         path="/cart"
-        render={() =>
-          cart.length ? (
-            <Cart allResults={allResults} />
-          ) : (
-            <Redirect to="/landingPage" />
-          )
-        }
+        render={() => (cart.length ? <Cart /> : <Redirect to="/landingPage" />)}
       />
 
       <Route exact path="/about" component={About} />
@@ -74,17 +58,8 @@ const App = () => {
         exact
         path="/products"
         render={
-          () => (
-            // result.length ? (
-            //take the prop out
-            //need to create a component
-            //that handles rendering all the filtered items
-            //and import that into results
+          () => 
             <Results result={result} allResults={allResults} />
-          )
-          // ) : (
-          //   <Redirect to="/landingPage" />
-          // )
         }
       />
 
@@ -94,9 +69,21 @@ const App = () => {
         render={() => <Summary allResults={allResults} />}
       />
 
-      <Route exact path="/cart" render={() => (cart.length ? <Total /> : <Redirect to="/landingPage"/>)} />
+      <Route
+        exact
+        path="/cart"
+        render={() =>
+          cart.length ? <Total /> : <Redirect to="/landingPage" />
+        }
+      />
 
-      <Route exact path="/checkout" render={() => (cart.length ? <Checkout /> : <Redirect to="/landingPage"/>)} />
+      <Route
+        exact
+        path="/checkout"
+        render={() =>
+          cart.length ? <Checkout /> : <Redirect to="/landingPage" />
+        }
+      />
 
       <Route exact path="/thanks" component={Thanks} />
 
